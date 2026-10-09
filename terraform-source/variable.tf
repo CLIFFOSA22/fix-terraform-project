@@ -4,21 +4,25 @@ variable "aws_region" {
   default     = "ca-central-1"
 }
 
+# I changed the AMI ID to linux 2 AMI ID as recommended
 variable "ami_id" {
   type        = string
-  description = "AMI ID to use for the instance"
-  default     = "ami-03814457ed908d8f6"
+  description = "Amazon Linux 2 AMI in Canada Central"
+  default     = "ami-02bcdd2c1673f8635"
 }
 
+# I changed the instance type because Free Tier does not support t2.micro
 variable "instance_type" {
   type        = string
-  default     = "t2.micro"
+  default     = "t3.micro"
 }
+
+# I corrected the invalid key pair name to an existing AWS EC2 key pair.
 
 variable "key_name" {
   type        = string
-  description = "EC2 Key pair name"
-  default = "metrocanadakp"
+  description = "Existing EC2 key pair in Canada Central"
+  default     = "OSAS.NEWWW"
 }
 
 variable "environment" {
@@ -26,8 +30,10 @@ variable "environment" {
   default = "dev"
 }
 
+# I corrected the invalid VPC ID to my existing default VPC.
+
 variable "vpc_id" {
   type        = string
-  description = "VPC ID to launch resources into"
-  default = "vpc-0d5d4b0f4e6f895ad"
+  description = "Existing default VPC in Canada Central"
+  default     = "vpc-0faec91a9004da00a"
 }
